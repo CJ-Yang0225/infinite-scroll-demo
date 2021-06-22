@@ -4,6 +4,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: white;
+  font-size: 16px;
 }
 
 a {
@@ -11,6 +13,185 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 * {
   box-sizing: border-box;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #333333;
+  padding: 24px 32px;
+}
+
+.post-list__container {
+  background-color: #424242;
+  border-radius: 0.5rem;
+}
+
+.post-list__item {
+  display: flex;
+  padding: 16px;
+  height: 136px;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+}
+
+.post-list__item:not(:last-of-type) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.post-list__item:hover {
+  transform: perspective(1px) scaleX(1.02);
+  border-bottom: 2px solid rgba(255, 255, 255);
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.post-list__user-info {
+  margin-top: 4px;
+  margin-right: 16px;
+}
+
+.post-list__item .post-list__avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #bdbdbd;
+}
+
+.post-list__item .post-list__text {
+  overflow: hidden;
+}
+
+.post-list__item .post-list__text .post-list__title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.01em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.post-list__item .post-list__text .post-list__body {
+  display: -webkit-box;
+  margin: 0;
+  margin-top: 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 1920px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card__paper {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  width: 75%;
+  padding: 24px;
+  background-color: #424242;
+  overflow: hidden;
+  animation-duration: 0.5s;
+  animation-name: grow-in;
+}
+
+.card__paper .card__user-info {
+  display: flex;
+  align-items: center;
+}
+
+.card__paper .card__user-info .card__avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #bdbdbd;
+}
+
+.card__paper .card__content {
+  margin-bottom: 24px;
+}
+
+.card__paper .card__content .card__title {
+  margin: 12px 0 12px 0;
+  font-size: 1.5rem;
+}
+
+.card__paper .card__content .card__body {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.card__paper .card__back {
+  display: flex;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: 8px;
+  bottom: 4px;
+  cursor: pointer;
+}
+
+@keyframes grow-in {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  html {
+    font-size: 14px;
+  }
+
+  .app {
+    padding: 16px;
+  }
+
+  .post-list__item {
+    padding: 12px;
+    height: 120px;
+  }
+
+  .post-list__item .post-list__user-info .post-list__avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .post-list__item .post-list__user-info .post-list__avatar svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .card__paper {
+    width: 100%;
+  }
 }
