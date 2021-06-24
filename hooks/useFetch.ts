@@ -14,11 +14,13 @@ function useFetch() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const loadMore = useCallback(
-    ({ index = 1, items = 10 }) => {
-      const begin = index * items;
+    ({ page = 1, items = 10 }) => {
+      const begin = (page - 1) * items + defaultItems;
       const end = begin + items;
 
-      if (begin === posts.length) {
+      console.log(page, begin);
+
+      if (begin >= posts.length) {
         setHasMore(false);
         return;
       }

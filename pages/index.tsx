@@ -19,7 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     if (page !== 0) {
-      setTimeout(() => loadMore({ index: page, items: 20 }), 500);
+      setTimeout(() => loadMore({ index: page, items: 10 }), 500);
     }
   }, [isLoaded, loadMore, page]);
 

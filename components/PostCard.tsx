@@ -11,7 +11,7 @@ function PostCard({ userId, title, body }: Props) {
   const router = useRouter();
 
   const handleClick = () => {
-    router.back();
+    router.push("/");
   };
 
   return (
