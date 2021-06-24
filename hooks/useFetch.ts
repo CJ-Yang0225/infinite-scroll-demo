@@ -14,8 +14,8 @@ function useFetch() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const loadMore = useCallback(
-    ({ index = 0, items = 10 }) => {
-      const begin = index * items + defaultItems;
+    ({ index = 1, items = 10 }) => {
+      const begin = index * items;
       const end = begin + items;
 
       if (begin === posts.length) {

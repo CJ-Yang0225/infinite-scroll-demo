@@ -18,8 +18,10 @@ export default function Home() {
   const ref = useIntersectRef(handleLoad);
 
   useEffect(() => {
-    if (page > 0) setTimeout(() => loadMore({ index: page, items: 10 }), 500);
-  }, [loadMore, page]);
+    if (page !== 0) {
+      setTimeout(() => loadMore({ index: page, items: 20 }), 500);
+    }
+  }, [isLoaded, loadMore, page]);
 
   return (
     <React.Fragment>
