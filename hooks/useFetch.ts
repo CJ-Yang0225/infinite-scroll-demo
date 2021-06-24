@@ -18,8 +18,6 @@ function useFetch() {
       const begin = (page - 1) * items + defaultItems;
       const end = begin + items;
 
-      console.log(page, begin);
-
       if (begin >= posts.length) {
         setHasMore(false);
         return;
