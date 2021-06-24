@@ -15,12 +15,13 @@ function PostList({ posts }: Props) {
 
   return (
     <ul className="post-list__container">
-      {posts.map((post) => (
+      {posts.map((post, index) => (
         <li
           key={post.id}
           className="post-list__item"
           onClick={handleClick.bind(null, post.id)}
         >
+          <span className="post-list__number">{index + 1}</span>
           <div className="post-list__user-info">
             <div className="post-list__avatar">
               <svg

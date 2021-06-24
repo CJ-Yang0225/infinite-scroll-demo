@@ -13,15 +13,22 @@ function useFetch() {
   const [hasMore, setHasMore] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const loadMore = ({ index = 0, items = 10 }) => {
-    const begin = index * items + defaultItems;
-    const end = begin + items;
-    const newPosts = posts.slice(begin, end);
+  const loadMore = useCallback(
+    ({ index = 0, items = 10 }) => {
+      const begin = index * items + defaultItems;
+      const end = begin + items;
 
-    setPartialPosts((partialPosts) => [...partialPosts, ...newPosts]);
+      if (begin === posts.length) {
+        setHasMore(false);
+        return;
+      }
 
-    if (end === posts.length) setHasMore(false);
-  };
+      const newPosts = posts.slice(begin, end);
+
+      setPartialPosts((partialPosts) => [...partialPosts, ...newPosts]);
+    },
+    [posts]
+  );
 
   useEffect(() => {
     api.getPosts().then((data) => {
