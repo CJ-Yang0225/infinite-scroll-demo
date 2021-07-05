@@ -1,3 +1,7 @@
+# Infinite Scroll Demo
+
+學習 Web APIs - Intersection Observer 並將其打包成 React Custom Hook 的形式（不清楚 API 的介面、參數，所以自己模擬獲取的資料筆數）。
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
